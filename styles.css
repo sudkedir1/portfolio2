@@ -21,7 +21,7 @@ body {
 }
 
 .navbar {
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     width: 100%;
     padding: 1.5rem 5%;
@@ -133,15 +133,25 @@ body {
 }
 
 .cta-button {
-    display: inline;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
     padding: 1rem 2rem;
-    background: linear-gradient(45deg, var(--accent), #27ae60);
+    background: linear-gradient(45deg, var(--accent));
     color: white;
     border-radius: 8px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease-in-out;
     position: relative;
     overflow: hidden;
+}
+
+.cta-button:hover {
+    background: black;
+    color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px var(--accent-glow);
 }
 
 .skills {
@@ -150,13 +160,40 @@ body {
 
 }
 
-.skills-grid {
+/* .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
 
+} */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Creates a 3-column base */
+    gap: 2rem;
+    margin-top: 3rem;
 }
+
+/* Row 1: First card takes 1 part (1 column), second takes 2 parts (2 columns) */
+.skill-card:nth-child(1) {
+    grid-column: span 1;
+}
+
+.skill-card:nth-child(2) {
+    grid-column: span 2;
+}
+
+/* Row 2: Third card takes 2 parts (2 columns), fourth takes 1 part (1 column) */
+.skill-card:nth-child(3) {
+    grid-column: span 2;
+}
+
+.skill-card:nth-child(4) {
+    grid-column: span 1;
+}
+
 
 .skill-card {
     padding: 2rem;
